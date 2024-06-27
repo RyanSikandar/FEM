@@ -11,17 +11,27 @@ const moodOptions: MoodOptionType[] = [
   { emoji: '😤', description: 'frustrated' },
 ];
 type MoodPickerProps = {
-    handleSelectMood: (moodOption: MoodOptionType) => void;
+  handleSelectMood: (moodOption: MoodOptionType) => void;
 }
 
-export const MoodPicker: React.FC<MoodPickerProps> = ({handleSelectMood}) => {
+export const MoodPicker: React.FC<MoodPickerProps> = ({ handleSelectMood }) => {
   const [selectedMood, setSelectedMood] = React.useState<MoodOptionType>();
+  const [hasSelected, setHasSelected] = React.useState(false);
 
-  const handleSelect=()=>{
+  const handleSelect = () => {
     if (selectedMood) {
       handleSelectMood(selectedMood);
       setSelectedMood(undefined);
+      setHasSelected(true);
     }
+  }
+  if (hasSelected) {
+    return (
+    <View style={styles.container}>
+      <Pressable style={styles.button} onPress={() => setHasSelected(false)}>
+        <Text style={styles.buttonText}>Choose Another</Text>
+      </Pressable>
+    </View>)
   }
 
   return (
@@ -87,6 +97,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 10,
     padding: 20,
+    backgroundColor:'rgba(0,0,0,0.2)'
   },
   heading: {
     fontSize: 20,
@@ -94,6 +105,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
     textAlign: 'center',
     marginBottom: 20,
+    color: theme.colorWhite,
   },
   button: {
     backgroundColor: theme.colorPurple,
