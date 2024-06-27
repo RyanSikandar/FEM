@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { MoodOptionType } from '../types';
 import { theme } from '../Theme';
 
+
 const moodOptions: MoodOptionType[] = [
   { emoji: '🧑‍💻', description: 'studious' },
   { emoji: '🤔', description: 'pensive' },
