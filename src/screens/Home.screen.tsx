@@ -4,6 +4,7 @@ import { MoodPicker } from "../components/MoodPicker";
 import { MoodOptionType, moodOptionWithTimestamp } from "../types";
 import { MoodItemRow } from "../components/MoodItemRow";
 import { useAppContext } from "../App.provider";
+import { HomeIcon } from "../components/Icons";
 
 const imageSrc = require('../../assets/butterflies.png')
 const imageUrl =
@@ -12,6 +13,7 @@ const Home = () => {
     const { handleSelectMood, moodList } = useAppContext();
     return (
         <View style={styles.container}>
+            
 
             <Image source={{ uri: imageUrl }} style={{ flex: 1 }} />
             <View style={[StyleSheet.absoluteFill, {
