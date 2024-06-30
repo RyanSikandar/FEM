@@ -2,8 +2,8 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Home from "./Home.screen";
 import History from "./History.screen"
-import Analytics from "./Analytics.screen"
 import { AnalyticsIcon, HistoryIcon, HomeIcon } from "../components/Icons";
+import { Analytics } from "./Analytics.screen";
 const BottomTabs = createBottomTabNavigator();
 
 export const BottomTabsNavigator = () => {

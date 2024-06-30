@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import Home from "./screens/Home.screen";
 import { NavigationContainer } from "@react-navigation/native";
@@ -6,6 +6,7 @@ import { BottomTabsNavigator } from "./screens/BottomTabs.navigator";
 import { AppProvider } from "./App.provider";
 
 import { Platform, UIManager } from 'react-native';
+import SplashScreen from "react-native-splash-screen";
 
 if (Platform.OS === 'android') {
   if (UIManager.setLayoutAnimationEnabledExperimental) {
@@ -14,6 +15,9 @@ if (Platform.OS === 'android') {
 }
 
 const App = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     <AppProvider>
       <NavigationContainer>
